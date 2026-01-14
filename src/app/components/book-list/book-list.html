@@ -1,0 +1,16 @@
+<div *ngIf="loading">Chargement des livres...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div class="grid">
+  <a class="card" *ngFor="let book of filteredBooks" [routerLink]="['/books', (book.key || '').split('/').pop()]">
+
+    <img
+      [src]="book.cover_id ? 'https://covers.openlibrary.org/b/id/' + book.cover_id + '-M.jpg' : 'https://via.placeholder.com/128x180?text=No+Cover'"
+      alt="Couverture du livre"
+    />
+    <h3>{{ book.title }}</h3>
+    <button class="wish" [class.active]="isInWishlist(book)" aria-pressed="{{isInWishlist(book)}}" (click)="$event.preventDefault(); toggleWishlist(book)">❤</button>
+  </a>
+</div>
+
+<div *ngIf="isYearFetching" class="year-fetching">Vérification des années en cours…</div>

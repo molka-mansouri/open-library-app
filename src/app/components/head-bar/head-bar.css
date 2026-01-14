@@ -1,0 +1,46 @@
+.head-bar {
+  padding: 16px 24px;
+  background-color: #111; /* noir profond */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 3px solid #bfa14c; /* doré */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  justify-content: space-between;
+}
+
+.head-bar .logo {
+  height: 50px;
+  width: auto;
+}
+
+.head-bar h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.head-bar a.home-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.head-bar a.home-link:hover h1 {
+  color: #ffd166; /* doré clair sur hover */
+}
+
+.wishlist-link {
+  color: #ffd166;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255,209,102,0.06);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.wishlist-link:hover { opacity: 0.95; }

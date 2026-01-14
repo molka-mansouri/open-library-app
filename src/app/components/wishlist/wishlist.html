@@ -1,0 +1,15 @@
+<div class="wishlist">
+  <div class="wishlist-header">
+    <h3>Wish list ❤️ ({{ items.length }})</h3>
+    <button class="clear" (click)="clear()" *ngIf="items.length">Clear</button>
+  </div>
+
+  <div *ngIf="!items.length" class="empty">Votre wishlist est vide.</div>
+
+  <ul>
+    <li *ngFor="let it of items">
+      <a [routerLink]="['/books', (it.key || '').split('/').pop()]">{{ it.title }}</a>
+      <button class="remove" (click)="remove(it)">Remove</button>
+    </li>
+  </ul>
+</div>

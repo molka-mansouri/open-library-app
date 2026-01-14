@@ -1,0 +1,26 @@
+<div *ngIf="loading">Chargement du livre...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="book" class="book-details">
+  <div class="actions">
+    <a routerLink="/" class="back-btn">← Retour</a>
+  </div>
+
+  <div class="cover" *ngIf="book.covers && book.covers.length">
+    <img [src]="'https://covers.openlibrary.org/b/id/' + book.covers[0] + '-L.jpg'" alt="Couverture du livre" />
+  </div>
+
+  <div class="meta">
+    <h2>{{ book.title }}</h2>
+    <h3 *ngIf="getSubtitle()">Sous-titre : {{ getSubtitle() }}</h3>
+
+    <p><strong>Année de première édition :</strong>
+      {{ bookComputedYear || book.first_publish_year || book.first_publish_date || (book.created?.value | date:'yyyy') || 'N/A' }}</p>
+
+    <div>
+      <strong>Description :</strong>
+      <p *ngIf="book.description">{{ book.description.value || book.description }}</p>
+      <p *ngIf="!book.description">Description non disponible.</p>
+    </div>
+  </div>
+</div>
